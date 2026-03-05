@@ -117,8 +117,11 @@
   "cmake.ignoreCMakeListsMissing": true,
   "C_Cpp_Runner.msvcBatchPath": "",
   "clangd.arguments": [
-
-    "--compile-commands-dir=/Users/martin/Documents/git/ITS-BRD-VSC/Programs/Stack/out/Stack/ITSboard/Debug"
-
-  ]
+    "--compile-commands-dir=/Users/franz/GIT_HUB/ITS-BRD-VSC/Programs/Karl/out/Karl/ITSboard/Debug"
+  ],
+  "debug.hideSlowPreLaunchWarning": true,
+  "debug.showInStatusBar": "never",
+  "files.associations": {
+    "*.s": "arm-debugger.arm"
+  }
 }
