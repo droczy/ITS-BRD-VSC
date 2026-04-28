@@ -27,14 +27,14 @@ Die Speicher-Referenz von `VariableA` wird in `R0` gespeichert.
 ```
 ldrb R2,[R0] ; Anw02
 ```
-Der Least-Significant-Byte, des Inhalts, welcher an der Speicheradresse `R0`  steht, wird in `R2` gespeichert (`0xef`).
+Das Least-Significant-Byte, des Inhalts, welcher an der Speicheradresse `R0`  steht, wird in `R2` gespeichert (`0xef`).
 
 
 ### Anweisung 03
 ```
 ldrb R3,[R0,#1] ; Anw03
 ```
-Der zweite Byte, des Inhalts, welcher an der Speicheradresse `R0`  steht, wird in `R2` gespeichert (`0xbe`). `#1` gibt die Anzahl der Verschiebungen um die Größe der Lade-Operation an.
+Das zweite Byte, des Inhalts, welcher an der Speicheradresse `R0`  steht, wird in `R2` gespeichert (`0xbe`). `#1` gibt die Anzahl der Verschiebungen um die Größe der Lade-Operation an.
 
 
 ### Anweisung 04
@@ -42,7 +42,7 @@ Der zweite Byte, des Inhalts, welcher an der Speicheradresse `R0`  steht, wird i
 lsl R2, #8 ; Anw04
 ```
 Eine Left-Shift-Operation wird durchgeführt. Es werden alle Bits um `#8` Stellen nach links verschoben. Liegt das Zielbit außerhalb der Speichergröße, beginnt die Verschiebung wieder beim least significant bit. Das Ergebnis bleibt in `R2`.
-Es gilt also: Zielposition = (Position + Verschiebung) mod Speichergröße
+Es gilt also: Zielposition = (Position + Verschiebung) % Speichergröße
 `0x 0000 0000 0000 00ef` $\rightarrow$ `0x 0000 0000 0000 ef00`
 
 
@@ -56,10 +56,11 @@ Eine `XOR` Operation zwischen den beiden angegebenen Registern `R2` und `R3`, vo
 0x00BE            = 0b0000 0000 1011 1110
 0xEF00 XOR 0x00BE = 0b1110 1111 1011 1110 = 0xEFBE
 ```
+Damit werden die Register `R2`und `R3`in `R2`zusammengeführt.
 
 
 ### Anweisung 06
 ```
 strh R2,[R0] ; Anw06
 ```
-Speichert das Least-Significant Halbwort in `R2`, an der Speicheradresse, welche in `R0` angegeben ist.
+Speichert das Least-Significant Halbwort in `R2`, an der Speicheradresse, welche in `R0` angegeben ist. ARM verwendet Little-Endian, im Speicher steht hintereinander `0xbeef`.

@@ -41,12 +41,17 @@ main
 ;* save 0xaffe in memory
 	ldr		R10,=VariableC	; load memory address
 	strh	R5, [R10]		; saves 0xfeaf in memory
+	ldrb	R11,[R10]		; load first byte in R11
+	ldrb	R12,[R10,#1]	; load second byte in R12
+	lsl		R11, #8			; 8 bit left shift operation
+	orr		R11, R12		; XOR R11 and R12
+	strh	R11,[R10]		; store R11 in memory
 
 
-;* Change value from x1234 to x4321
+;* Change value from x1234 to x3412
     ldr     R1,=VariableB   ; Anw09
     ldrh    R6,[R1]         ; Anw0A
-    mov     R7, #0x30ED     ; Anw0B
+    mov     R7, #0x21de     ; Anw0B
     add     R6, R6, R7      ; Anw0C
     strh    R6,[R1]         ; Anw0D
     b .                     ; Anw0E
