@@ -19,7 +19,7 @@ ConstByteA  EQU 0xaffe			;0b 1010 1111 1111 1110
     AREA DATA, DATA, align=2    
 VariableA   DCW 0xbeef			;0b 1011 1110 1110 1111
 VariableB   DCW 0x1234			;0b 0001 0010 0011 0100
-VariableC	DCW 0x0000			;reserve 2 words in memory
+VariableC	DCW 0x00			;reserve 2 words in memory
 
 ;* We need minimal memory setup of InRootSection placed in Code Section 
     AREA  |.text|, CODE, READONLY, ALIGN = 3    
@@ -44,14 +44,14 @@ main
 	ldrb	R11,[R10]		; load first byte in R11
 	ldrb	R12,[R10,#1]	; load second byte in R12
 	lsl		R11, #8			; 8 bit left shift operation
-	orr		R11, R12		; XOR R11 and R12
+	orr		R11, R12		; OR R11 and R12
 	strh	R11,[R10]		; store R11 in memory
 
 
 ;* Change value from x1234 to x3412
     ldr     R1,=VariableB   ; Anw09
     ldrh    R6,[R1]         ; Anw0A
-    mov     R7, #0x21de     ; Anw0B
+    mov     R7,#0x21de     ; Anw0B
     add     R6, R6, R7      ; Anw0C
     strh    R6,[R1]         ; Anw0D
     b .                     ; Anw0E
