@@ -41,7 +41,7 @@ Das zweite Byte, des Inhalts, welcher an der Speicheradresse `R0`  steht, wird i
 ```
 lsl R2, #8 ; Anw04
 ```
-Eine Left-Shift-Operation wird durchgeführt. Es werden alle Bits um `#8` Stellen nach links verschoben. Liegt das Zielbit außerhalb der Speichergröße, beginnt die Verschiebung wieder beim least significant bit. Das Ergebnis bleibt in `R2`.
+Eine Left-Shift-Operation wird durchgeführt. Es werden alle Bits um `#8` Stellen nach links verschoben. Von rechts wird mit Nullen aufgefüllt. Das Ergebnis bleibt in `R2`.
 Es gilt also: Zielposition = (Position + Verschiebung) % Speichergröße
 `0x 0000 0000 0000 00ef` $\rightarrow$ `0x 0000 0000 0000 ef00`
 
@@ -50,11 +50,11 @@ Es gilt also: Zielposition = (Position + Verschiebung) % Speichergröße
 ```asm
 orr R2, R3 ; Anw05
 ```
-Eine `XOR` Operation zwischen den beiden angegebenen Registern `R2` und `R3`, von welcher das Ergebnis in `R2` gespeichert wird.
+Eine `OR` Operation zwischen den beiden angegebenen Registern `R2` und `R3`, von welcher das Ergebnis in `R2` gespeichert wird.
 ```
 0xEF00            = 0b1110 1111 0000 0000
 0x00BE            = 0b0000 0000 1011 1110
-0xEF00 XOR 0x00BE = 0b1110 1111 1011 1110 = 0xEFBE
+0xEF00 OR 0x00BE  = 0b1110 1111 1011 1110 = 0xEFBE
 ```
 Damit werden die Register `R2`und `R3`in `R2`zusammengeführt.
 

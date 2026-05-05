@@ -51,7 +51,7 @@ main
 ;* Change value from x1234 to x3412
     ldr     R1,=VariableB   ; Anw09
     ldrh    R6,[R1]         ; Anw0A
-    mov     R7,#0x21de     ; Anw0B
+    mov     R7,#0x21de      ; Anw0B
     add     R6, R6, R7      ; Anw0C
     strh    R6,[R1]         ; Anw0D
     b .                     ; Anw0E
