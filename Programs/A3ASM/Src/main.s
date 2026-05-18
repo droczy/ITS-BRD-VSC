@@ -15,7 +15,6 @@ MeinWortFeld       DCD 0x12345678 , 0x9dca5986
                    DCD 0x27000000
                    DCD 0x45000000
 
-MeinTextFeld       DCB "ABab0123",0
 
                    EXPORT VariableA
                    EXPORT VariableB
