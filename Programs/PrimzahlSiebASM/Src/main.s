@@ -4,34 +4,38 @@
                    AREA MyData, DATA, align = 2
 
 ; --- Register Belegungen ---
-; R0    Speicheradresse IndexIstPrimzahl
-; R1                    IndexIstPrimzahl
-; R2    Speicheradresse IndexPrimzahlen
-; R3                    IndexPrimzahlen
-; R4    Speicheradresse NaechstesVielfache
-; R5                    NaechstesVielfache
-; R6    Speicheradresse IstPrimzahl
-; R7	Speicheradresse Primzahlen
-; R10   Konstante       0b00000001
-; R11
-; R12
+
+; R0    Speicheradresse 	IndexIstPrimzahl
+; R1                    	IndexIstPrimzahl
+; R2    Speicheradresse 	IndexPrimzahlen
+; R3                    	IndexPrimzahlen
+; R4    Speicheradresse 	NaechstesVielfache
+; R5                    	NaechstesVielfache
+; R6    Speicheradresse 	IstPrimzahl
+; R7	Speicheradresse 	Primzahlen
+; R10   Konstante       	0b00000001
+; R11	Tmp
+; R12	Tmp
 
 
 
 ; --- Deklaration ---
+
 ; Anlegen der Register-Variable IndexIstPrimzahl (= 0x2)
 IndexIstPrimzahl        DCW     0x2
+
 ; Anlegen der Register-Variable IndexPrimzahlen (= 0x0)
 IndexPrimzahlen         DCW     0x0
+
 ; Anlegen der Register-Variable NaechstesVielfache (= 0x0)
 NaechstesVielfache      DCW     0x0
 
 ; Anlegen eines Feld IstPrimzahl
 IstPrimzahl             FILL 1000, 0x0
-
-    
+ 
 ; Anlegen eines Feld Primzahlen
 Primzahlen				FILL 1000, 0x0
+
 
 
 ;***********************************************
