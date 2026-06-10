@@ -71,11 +71,11 @@ switchLEDsOff			PROC
 
 
 switchLEDsOn			PROC
-						; PUSH		{lr}
+						PUSH		{}
 						ldr			r1, =GPIO_D_SET
 						eor			r0, r0, #0xFF
 						strb		r0, [r1]
-						; POP		{lr}
+						POP			{}
 						BX			lr
 						ENDP
 

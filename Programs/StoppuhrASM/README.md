@@ -60,9 +60,10 @@ Wir haben den bisherigen Quellcode aufgeräumt und durch passende Unterprogramme
 ## Achter Praktikumstermin
 
 ### Ziele
-1. Entwicklung des lauffähigen Codes für die Zustände des Automaten.
-2. Fertige Implementation für die Zeitmessung.
-3. Anlegen von Variablen zum speichern und ausgeben der Zeit, auf dem Display.
+1. Umschreiben der Unterprogramme, so dass immer nur eine LED angesteuert bzw. ausgelesen wird.
+2. Entwicklung des lauffähigen Codes für die Zustände des Automaten (`superloop`).
+3. Fertige Implementation für die Zeitmessung.
+4. Anlegen von Variablen zum speichern und ausgeben der Zeit, auf dem Display.
 
 
 ## Neunter Praktikumstermin
