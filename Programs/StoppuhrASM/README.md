@@ -65,38 +65,13 @@ Wir haben den bisherigen Quellcode aufgeräumt und durch passende Unterprogramme
 3. Fertige Implementation für die Zeitmessung.
 4. Anlegen von Variablen zum speichern und ausgeben der Zeit, auf dem Display.
 
+### Erledigt
+Die Implementierung der Stoppuhr wurde soweit fertiggestellt. Es fehlt noch die Anzeige des aktuellen Zustands über die LEDs und das entfernen des Flackerns des Timers auf dem Display.
 
 ## Neunter Praktikumstermin
 
 ### Ziele
 1. Fertigstellung der Stoppuhr.
 
-
-
-# Technische Implementation
-
-
-## Unterprogramme
-
-Hier werden die Schnittstellen und Funktionalität, der von uns implementieren Unterprogramme erläutert.
-
-
-### `readButtons`
-Das Unterprogramm ließt den aktuellen Zustand der Taster aus.
-
-**Rückgabewerte:**
-- `r0`: Bitmaske der gedrückten Taster.
-
-
-### `switchLEDsOff`
-Das Unterprogramm schaltet die LEDs aus, die in der Bitmaske ausgewählt sind.
-
-**Übergabeparameter:**
-- `r0`: Bitmaske der LEDs, welche ausgeschaltet werden.
-
-
-### `switchLEDsOn`
-Das Unterprogramm schaltet die LEDs an, die in der Bitmaske ausgewählt sind.
-
-**Übergabeparameter:**
-- `r0`: Bitmaske der LEDs, welche angeschaltet werden.
+### Erledigt
+Die Stoppuhr wurde fertig implementiert. Das Display flackert nicht mehr und der aktuelle Zustand wird über die LEDs angezeigt.
