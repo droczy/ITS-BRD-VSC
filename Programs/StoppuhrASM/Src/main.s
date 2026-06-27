@@ -113,7 +113,7 @@ readButtons							PROC
 									and			r4, #0xE0
 									mov			r0, r4
 									bl			bitmaskToNumber
-									
+
 									pop			{r4, lr}
 									blx			lr
 									ENDP
@@ -337,6 +337,8 @@ end_setTime_01
 ; Rückgabewerte:
 ; 	r0: Bitmaske des Dezimalwerts
 ;----------------------------------|-----------|
+
+
 displayTime							PROC
 									push		{r4, r5, r6, r7, r8, lr}
 
@@ -399,7 +401,7 @@ checkTimer							PROC
 ;----------------------------------|-----------|
 numberToASCII						PROC
 
-									add			r0, r0, #0x30
+									add			r0, r0, #'0'
 									blx			lr
 
 									ENDP
@@ -548,11 +550,9 @@ stateHOLD							PROC
 ;	r1: Wert des Zustands
 ;	r2: Gedrückter Button
 ; Rückgabewerte:
+;
 ; 	-
 ;----------------------------------|-----------|
-; r0: Speicheradresse STATE
-; r1: Wert STATE
-; r2: readButtons
 stateSwitchINIT						PROC
 									push		{r4, r5, r6, lr}
 
@@ -566,7 +566,7 @@ then_stateSwitchINIT_01
 									mov			r6, #1
 									strh		r6, [r5]
 									bl			switchLEDsOff
-									mov			r0, r2
+									mov			r0, #0
 									bl			switchLEDOn
 end_if_stateSwitchINIT_01
 
@@ -594,17 +594,15 @@ if_stateSwitchRUNNING_01
 									cmp			r2, r4
 									bne			else_if_stateSwitchRUNNING_01
 then_stateSwitchRUNNING_01
-									bl			switchLEDsOff
-									mov			r0, r2
-									bl			switchLEDOn
+									mov			r0, #0
+									bl			switchLEDOff
 									strb		r4, [r6]
 									b			end_if_stateSwitchRUNNING_01
 else_if_stateSwitchRUNNING_01
 									cmp			r2, r5
 									bne			end_if_stateSwitchRUNNING_01
 else_then_stateSwitchRUNNING_01
-									bl			switchLEDsOff
-									mov			r0, r2
+									mov			r0, #1
 									bl			switchLEDOn
 									strb		r5, [r6]
 end_if_stateSwitchRUNNING_01
@@ -634,18 +632,18 @@ if_stateSwitchHOLD_01
 									cmp			r2, r4
 									bne			else_if_stateSwitchHOLD_01
 then_stateSwitchHOLD_01
-									bl			switchLEDsOff
-									mov			r0, r2
-									bl			switchLEDOn
+									mov			r0, #0
+									bl			switchLEDOff
+									mov			r0, #1
+									bl			switchLEDOff
 									strb		r4, [r6]
 									b			end_if_stateSwitchHOLD_01
 else_if_stateSwitchHOLD_01
 									cmp			r2, r5
 									bne			end_if_stateSwitchHOLD_01
 else_then_stateSwitchHOLD_01
-									bl			switchLEDsOff
-									mov			r0, r2
-									bl			switchLEDOn
+									mov			r0, #1
+									bl			switchLEDOff
 									strb		r5, [r6]
 end_if_stateSwitchHOLD_01
 
